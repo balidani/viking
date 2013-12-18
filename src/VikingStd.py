@@ -44,6 +44,11 @@ class VikingStd:
             return a * b
         return self.arithmetic(op, args)
 
+    def pow(self, args):
+        def op(a, b):
+            return a ** b
+        return self.arithmetic(op, args)
+
     def div(self, args):
         def op(a, b):
             return a // b
@@ -64,9 +69,24 @@ class VikingStd:
             return a | b
         return self.arithmetic(op, args)
 
+    def left_shift(self, args):
+        def op(a, b):
+            return a << b
+        return self.arithmetic(op, args)
+
+    def right_shift(self, args):
+        def op(a, b):
+            return a >> b
+        return self.arithmetic(op, args)
+
     def lt(self, args):
         def op(a, b):
             return int (a < b)
+        return self.arithmetic(op, args)
+
+    def lte(self, args):
+        def op(a, b):
+            return int (a <= b)
         return self.arithmetic(op, args)
 
     def gt(self, args):
@@ -74,9 +94,34 @@ class VikingStd:
             return int (a > b)
         return self.arithmetic(op, args)
 
-    def nand(self, args):
+    def gte(self, args):
         def op(a, b):
-            return not (a and b)
+            return int (a >= b)
+        return self.arithmetic(op, args)
+
+    def eq(self, args):
+        def op(a, b):
+            return int (a == b)
+        return self.arithmetic(op, args)
+
+    def neq(self, args):
+        def op(a, b):
+            return int (a != b)
+        return self.arithmetic(op, args)
+
+    def boolean_not(self, args):
+        def op(a, b):
+            return int (not a)
+        return self.arithmetic(op, args)
+
+    def boolean_and(self, args):
+        def op(a, b):
+            return int (a and b)
+        return self.arithmetic(op, args)
+
+    def boolean_or(self, args):
+        def op(a, b):
+            return int (a or b)
         return self.arithmetic(op, args)
 
     def __init__(self):
@@ -85,11 +130,20 @@ class VikingStd:
             '+': self.add,
             '-': self.sub,
             '*': self.mul,
+            '**': self.pow,
             '/': self.div,
             '^': self.bitwise_xor,
             '&': self.bitwise_and,
             '|': self.bitwise_or,
+            '<<': self.left_shift,
+            '>>': self.right_shift,
             '<': self.lt,
+            '<=': self.lte,
             '>': self.gt,
-            '$': self.nand
+            '>=': self.gte,
+            '==': self.eq,
+            '!=': self.neq,
+            '!': self.boolean_not,
+            '&&': self.boolean_and,
+            '||': self.boolean_or
         }
