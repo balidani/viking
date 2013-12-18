@@ -14,7 +14,7 @@ class VikingParser:
 
         self.functions = {}
         self.digits = map(str, range(10))
-        self.special = "=(),#"
+        self.special = "(),#"
         self.newline = "\n"
         self.whitespace = " \t\n"
 
