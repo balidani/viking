@@ -31,4 +31,4 @@ gt (p, as) = filter (as, map ((>, p), as))
 qs () = ()
 qs (a, as) = ++ (qs lt (a, as), ++ ((a), qs gt (a, as)))
 
-main (argc, argv) = qs (5, (2, (3, (9, (8, (7, (1, (4, (6, (10, (11, (13, (12, (14, (0)))))))))))))))
+main (argc, argv) = qs . argv
