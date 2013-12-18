@@ -16,3 +16,7 @@ The samples can be found in the [samples](samples/) directory. It is possible to
 ### Specification
 
 For now, the [specification](specification.txt) will serve as the documentation for the language. Ideally, this will be changed later on for a proper documentation.
+
+### TODO
+
+Performance is terrible. Computing the 33rd fibonacci number takes forever. Some research needs to be done to see how others handle this problem, one possible solution is caching the partial results. Tail recursion should also be supported.
