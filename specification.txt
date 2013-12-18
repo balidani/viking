@@ -1,4 +1,3 @@
-
  ____________________________________________________________________________ 
 |                                                                            |
 |            viking - a purely functional programming language     __4___    |
@@ -29,7 +28,7 @@ Grammar
 
     symbol = ( all characters - digit - special ), 
         { all characters - special };
-    special = '=' | '(' | ')' | ',' | '#' | whitespace;
+    special = '(' | ')' | ',' | '#' | whitespace;
     
     newline = '\n';
     whitespace = ' ' | '\t' | newline;
@@ -39,7 +38,7 @@ Syntax
 ======
 
 The grammar specifies the syntax almost completely. There are a few reserved 
-special characters that cannot be used in symbol names: '=', '(', ')', ',', 
+special characters that cannot be used in symbol names: '(', ')', ',', 
 '#' and whitespace. The hashmark is reserved for comments.
 
 Any line where the first non-whitespace character is the hashmark is considered 
