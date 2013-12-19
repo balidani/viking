@@ -11,6 +11,7 @@ class VikingInterpreter:
 
     def __init__(self, functions):
         self.functions = functions
+        self.cache = {}
 
     def match_pattern(self, pattern, args):
         'Match a pattern with the arguments'
@@ -118,6 +119,14 @@ class VikingInterpreter:
     def interpret_function(self, function, args):
         'Interpret a single function'
 
+        if len(function) == 0:
+            raise Exception('No function to interpret')
+
+        function_name = function[0][0][1]
+
+        if (function_name, args) in self.cache:
+            return self.cache[(function_name, args)]
+
         # Match the pattern
         match, expression = None, None
         for part_candidate in function:
@@ -129,11 +138,15 @@ class VikingInterpreter:
                 break
 
         if match is None:
-            print args
             raise Exception('No matching pattern found for function \'%s\'' % function[0][0][1])
 
         # Use the match to interpret the expression
-        return self.interpret_expression(expression, match)
+        result = self.interpret_expression(expression, match)
+
+        # Cache the result
+        self.cache[(function_name, args)] = result
+
+        return result
 
     def pretty_print(self, expression):
         'Convert an expression to a more readable format'
