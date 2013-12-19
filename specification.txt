@@ -3,8 +3,8 @@
 |            viking - a purely functional programming language     __4___    |
 |__________________________________________________________________\     \___|
                                                                <'\ /_ _ _/    
-                "viking is not a rip-off of Erlang at all"      ((____!___/)  
-                                        - no one ever            \0\0\0\0\/   
+                                                                ((____!___/)
+                                                                 \0\0\0\0\/
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 Grammar
@@ -184,8 +184,8 @@ Helper function to merge lists
 
     # ++ (a, b): concatenate lists a and b
     ++ ((), b) = b
-    ++ (a, ()) = a
-    ++ (a, b) = (. a, ++ (~ a, b))
+    ++ ((a), b) = (a, b)
+    ++ ((a, as), b) = (a, ++ (as, b))
 
 Helper functions to filter elements
 

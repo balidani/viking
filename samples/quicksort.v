@@ -7,9 +7,9 @@
 ~ (a, as) = as
 
 # ++ (a, b): concatenate lists a and b
-++ (a, ()) = a
 ++ ((), b) = b
-++ (a, b) = (. a, ++ (~ a, b))
+++ ((a), b) = (a, b)
+++ ((a, as), b) = (a, ++ (as, b))
 
 # map ((f, v), a): for every item in a, collect f (a, v)
 map ((f, p), ()) = ()
