@@ -6,6 +6,7 @@ __author__ = 'dada'
 
 import argparse
 import sys
+import time
 
 from VikingInterpreter import VikingInterpreter
 from VikingParser import VikingParser
@@ -23,11 +24,19 @@ def main():
         source = fp.read()
         source = source.replace('\r', '')
 
+    start_time = time.time()
+
     vp = VikingParser()
     functions = vp.parse_program(source)
 
+    print "# Code parsed in %0.4f s" % (time.time() - start_time)
+
+    start_time = time.time()
+
     vi = VikingInterpreter(functions)
     result = vi.interpret_program(sys.argv)
+
+    print "# Code interpreted in %0.4f s" % (time.time() - start_time)
 
     print result
 
