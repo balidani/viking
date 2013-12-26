@@ -19,4 +19,4 @@ For now, the [specification](specification.txt) will serve as the documentation 
 
 ### TODO
 
-Performance is terrible. Computing the 33rd fibonacci number takes forever. Some research needs to be done to see how others handle this problem, one possible solution is caching the partial results. Tail recursion should also be supported.
+The whole implementation has to be thrown away and remade. Possibly in C. The interpreter might have to be replaced by a compiler, which produces some form of byte-code. There could be a 'Viking Virtual Machine' to handle things.
